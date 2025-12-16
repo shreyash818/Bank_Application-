@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Profile</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f5f7fa;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --accent: #2563eb;
+      --balance: #059669;
+      --border: #e5e7eb;
+      --shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    body.dark {
+      --bg: #111827;
+      --card: #1f2937;
+      --text: #f9fafb;
+      --muted: #9ca3af;
+      --accent: #3b82f6;
+      --balance: #34d399;
+      --border: #374151;
+      --shadow: 0 8px 25px rgba(255, 255, 255, 0.05);
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .profile-card {
+      background: var(--card);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      width: 420px;
+      padding: 30px;
+      text-align: center;
+      transition: background 0.3s;
+    }
+
+    .avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--accent);
+      margin-bottom: 15px;
+    }
+
+    h2 {
+      margin: 10px 0 5px;
+      font-weight: 700;
+    }
+
+    p.role {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      text-align: left;
+    }
+
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+    }
+
+    th {
+      color: var(--muted);
+      width: 45%;
+    }
+
+    td {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .balance {
+      color: var(--balance);
+      font-weight: 700;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 20px;
+      text-decoration: none;
+      background: var(--accent);
+      color: white;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    .back-btn:hover {
+      background: #1e40af;
+    }
+  </style>
+</head>
+<body>
+  <div class="profile-card">
+    <img src="https://cdn-icons-png.flaticon.com/512/219/219983.png" alt="User Avatar" class="avatar">
+    <h2>{{ user.FirstName }}</h2>
+    <p class="role">Registered User</p>
+
+    <table>
+      <tr>
+        <th>Reg Number</th>
+        <td>{{ user.RegNumber }}</td>
+      </tr>
+      <tr>
+        <th>First Name</th>
+        <td>{{ user.FirstName }}</td>
+      </tr>
+      <tr>
+        <th>Username</th>
+        <td>{{ user.Username }}</td>
+      </tr>
+      <tr>
+        <th>Account Balance</th>
+        <td class="balance">₹{{ user.AccBal }}</td>
+      </tr>
+    </table>
+
+    <a href="/Dashboard" class="back-btn">⬅ Back to Dashboard</a>
+  </div>
+</body>
+</html>

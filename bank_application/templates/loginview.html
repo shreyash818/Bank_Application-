@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login Page</title>
+  <style>
+    :root{
+      --bg:#f5f7fb;
+      --card:#ffffff;
+      --accent:#7c4dff;
+      --muted:#6b7280;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:linear-gradient(180deg, var(--bg), #eef2ff);
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+    }
+    .card{
+      width:100%;
+      max-width:420px;
+      background:var(--card);
+      border-radius:12px;
+      box-shadow:0 10px 30px rgba(16,24,40,0.08);
+      padding:28px;
+    }
+    h1{
+      margin:0 0 18px 0;
+      font-size:22px;
+      text-align:center; 
+      color:#111827;
+      letter-spacing:0.2px;
+    }
+    form{
+      display:grid;
+      gap:14px;
+    }
+    label{
+      font-size:13px;
+      color:var(--muted);
+      display:block;
+      margin-bottom:6px;
+    }
+    .field{
+      display:flex;
+      flex-direction:column;
+    }
+    input[type="text"], input[type="password"]{
+      padding:10px 12px;
+      border:1px solid #e6e9ef;
+      border-radius:8px;
+      font-size:15px;
+      outline:none;
+      transition:box-shadow .15s, border-color .15s;
+    }
+    input:focus{
+      border-color:var(--accent);
+      box-shadow:0 6px 18px rgba(124,77,255,0.12);
+    }
+    input[type="submit"]{
+      background:var(--accent);
+      color:white;
+      border:none;
+      padding:10px 14px;
+      border-radius:10px;
+      cursor:pointer;
+      font-weight:600;
+      font-size:15px;
+      margin-top:4px;
+      width:100%;
+    }
+    input[type="submit"]:hover{
+      background:#5e35b1;
+    }
+    .links{
+      text-align:center;
+      margin-top:12px;
+    }
+    a{
+      color:var(--accent);
+      text-decoration:none;
+      font-weight:600;
+       
+    }
+    a:hover{text-decoration:underline;}
+    table{
+      margin:20px auto;
+      border-collapse:collapse;
+      width:100%;
+    }
+    table,th,td{
+      border:1px solid #e6e9ef;
+      padding:8px;
+      text-align:center;
+    }
+    th{
+      background-color:#f3f4f6;
+    }
+    p.message{
+      color:var(--accent);
+      font-weight:600;
+      text-align:center;
+      margin-top:10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Login Page</h1>
+
+    <form method="POST" action="/login">
+      <div class="field">
+        <label>Username</label>
+        <input type="text" name="username" required>
+      </div>
+
+      <div class="field">
+        <label>Password</label>
+        <input type="password" name="password" required>
+      </div>
+
+      <input type="submit" value="Login">
+
+      <div class="links">
+        <p>Don't have an account? <a href="/RegisterView">Register here</a></p>
+         
+      </div>
+    </form>
+
+    {% if message %}
+      <p class="message">{{ message }}</p>
+    {% endif %}
+
+    {% if user_data %}
+      <h3 style="text-align:center;margin-top:20px;">Your Account Details:</h3>
+      <table>
+        <tr>
+          <th>Reg Number</th>
+          <th>First Name</th>
+          <th>Username</th>
+          <th>Account Balance</th>
+        </tr>
+        <tr>
+          <td>{{ user_data.RegNumber }}</td>
+          <td>{{ user_data.FirstName }}</td>
+          <td>{{ user_data.Username }}</td>
+          <td>{{ user_data.AccBal }}</td>
+        </tr>
+      </table>
+    {% endif %}
+    <p style="text-align: center;"><a href="/">Back to Home</a></p>
+  </div>
+   
+</body>
+</html>

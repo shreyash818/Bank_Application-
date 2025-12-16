@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bank Management - Home</title>
+</head>
+<style>
+* {
+  margin: 0;
+  padding: 0; 
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: url("https://news.mit.edu/sites/default/files/styles/news_article__image_gallery/public/images/202406/mit_chip-printer-01-PRESS_1.jpg?itok=zWiovTar") no-repeat center center/cover;
+  backdrop-filter: brightness(0.8);
+  color: white;
+}
+
+/* Navbar Styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 15px 40px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.navbar .logo {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.navbar ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.navbar ul li a:hover {
+  color: #00eaff;
+}
+
+/* Main Section */
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  padding-top: 100px;
+}
+
+/* Card Section */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  height: 600px;
+  width: 100%;
+  max-width: 2000px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  text-align: center;
+  padding: 50px 0;
+  font-size: 1.3em;
+  font-weight: 600;
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s, background 0.3s;
+  backdrop-filter: blur(5px);
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  background: rgba(0, 234, 255, 0.2);
+  cursor: pointer;
+}
+
+.card-img {
+  width: 330px;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.card-btn {
+  background: #869ddd;
+  border: none;
+  
+  color: black;
+  font-weight: 600;
+  width: 320px;
+  height: 40px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.card-btn:hover {
+  background: #373838;
+  color: white;
+}
+</style>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">Bank Management</div>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">Contact Us</a></li>
+      <li><a href="/login">Log In</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Section -->
+  <section class="main">
+    <div class="card-container">
+
+      <div class="card">
+        <h2>Create Account</h2>
+        <img src="data:image/jpeg;base64,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VBZR7gEj+8pvPNAZrqHNK2c4ulTD1HLbe+Q2HkoKkrZVso58pzz3Un4XJcDkefUqq1MNWVq9NgPEtMWUgkbWBF/W/PPnAr6tgK204itSqW6lirfuSR/eYks/XPaQma5X8Oy1AQ6+JmB/LBFtq/47XuegBtz1FYQEREBERAREQEREBN/ozFHCZwpojxNdST02srA/ckrY+tpoJutMYkYHHfiXF7BjbyIVSdp/m6faBc+c518E0NXxYYh2U0k9QxuoA/lJc/aVFpnR1fUDb6JWnTFiXc8AevHTz+baD6zP17nLVaNHJAbikilz5tUsb/8ANj/UZqsPqipgsuXB5cq07cluWJPmRu4Fx1FreYAgWpkOl8Hl+UPk+Y4161Fm7x03CnSJFud3XyHAc9Lzd4fMMp0x4cKMPSa3UKNxHtUexP2JnnqvjqmIr9/XqMzDkMWJIt6Hy+06Gbc25upgehcV2r4ErtSsTbgbkqEn68W+9zNVie1TDMQtQ0qi+nc1f/sbXlHRAvJO1rCFvz0b6puv7cG3/ORvtF1fgdTZMFwwc11N0JS20EjcCb9COfPp5SsYgfTPkRAREQEREBERAREQEyMDUFLFLUrfKrBiPW3Nvv0+8x4gd2LxBxeJbEVerG5nTEQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQP/9k=" alt="Update Image" class="card-img">
+        <a href="/RegisterView"><button class="card-btn">Create</button></a>
+      </div>
+
+      <div class="card">
+        <h2>Search Account</h2>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlA5Nrrks5-PuCSbBP8qPW98E5aaA8aOxjkg&s" alt="Search Image" class="card-img">
+        <a href="/search"><button class="card-btn">Search</button></a>
+      </div>
+
+      <div class="card">
+        <h2>Update Account</h2>
+        <img src="https://i.pcmag.com/imagery/articles/04SrxFq5RDxUul7Iu3cQb0u-10..v1691002658.jpg" alt="Update Image" class="card-img">
+        <a href="/update"><button class="card-btn">Update</button></a>
+      </div>
+
+      <div class="card">
+        <h2>Delete Account</h2>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlECUPpM8wQEKUPlEoM6lnhsTAchNl6fsh1A&s" alt="Delete Image" class="card-img">
+        <a href="/delete"><button class="card-btn">Delete</button></a>
+      </div>
+
+      <div class="card">
+        <h2>Display All Accounts</h2>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3IqWryfl2_y296GmBq3lCc5TX1Nzz3a_-Aw&s" alt="Display Image" class="card-img">
+        <a href="/display"><button class="card-btn">Display All</button></a>
+      </div>
+
+    </div>
+  </section>
+</body>
+</html>

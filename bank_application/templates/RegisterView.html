@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Register New Account</title>
+  <style>
+    :root{
+      --bg1:#dbeafe;
+      --bg2:#ede9fe;
+      --card:#ffffffb3;
+      --accent:#7c4dff;
+      --accent-hover:#5b32d3;
+      --muted:#6b7280;
+      --text-dark:#1f2937;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:"Poppins", system-ui, sans-serif;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(135deg, var(--bg1), var(--bg2));
+      backdrop-filter:blur(6px);
+    }
+    .card{
+      width:100%;
+      max-width:480px;
+      background:var(--card);
+      border-radius:18px;
+      box-shadow:0 12px 40px rgba(0,0,0,0.12);
+      padding:40px 36px;
+      backdrop-filter:blur(8px);
+      animation:fadeIn 0.8s ease-in-out;
+    }
+    @keyframes fadeIn{
+      from{opacity:0; transform:translateY(20px);}
+      to{opacity:1; transform:translateY(0);}
+    }
+    h1{
+      font-size:26px;
+      font-weight:700;
+      text-align:center;
+      color:var(--text-dark);
+      margin-bottom:24px;
+      letter-spacing:0.5px;
+    }
+    form{
+      display:grid;
+      gap:16px;
+    }
+    label{
+      font-size:14px;
+      color:var(--muted);
+      margin-bottom:6px;
+    }
+    .field{
+      display:flex;
+      flex-direction:column;
+    }
+    input[type="text"], input[type="password"], input[type="number"]{
+      padding:12px 14px;
+      border:1px solid #e5e7eb;
+      border-radius:10px;
+      font-size:15px;
+      transition:all .25s ease;
+      background:#fafafa;
+    }
+    input:focus{
+      border-color:var(--accent);
+      box-shadow:0 0 0 4px rgba(124,77,255,0.1);
+      background:white;
+      outline:none;
+    }
+    .row{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+    }
+    .actions{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      margin-top:8px;
+    }
+    input[type="submit"], button{
+      background:var(--accent);
+      color:#fff;
+      font-weight:600;
+      border:none;
+      padding:12px;
+      border-radius:12px;
+      cursor:pointer;
+      font-size:16px;
+      width:100%;
+      transition:all .3s ease;
+    }
+    input[type="submit"]:hover{
+      background:var(--accent-hover);
+      transform:translateY(-2px);
+      box-shadow:0 6px 18px rgba(124,77,255,0.25);
+    }
+    button.secondary{
+      background:transparent;
+      color:var(--muted);
+      border:1px solid #d1d5db;
+    }
+    button.secondary:hover{
+      background:#f9fafb;
+    }
+    .note{
+      font-size:14px;
+      color:var(--muted);
+      text-align:center;
+      margin-top:14px;
+    }
+    .message {
+      text-align:center;
+      margin-top:14px;
+      font-weight:500;
+      color:#2563eb;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Register New Account</h1>
+    <form method="POST" action="{{ url_for('register') }}">
+      <div class="field">
+        <label>Reg Number:</label>
+        <input type="text" name="regnumber" required>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label>First Name:</label>
+          <input type="text" name="firstname" required>
+        </div>
+        <div class="field">
+          <label>Last Name:</label>
+          <input type="text" name="lastname" required>
+        </div>
+      </div>
+      <div class="field">
+        <label>Password:</label>
+        <input type="password" name="Password" required>
+      </div>
+      <div class="field">
+        <label>Account Balance (₹):</label>
+        <input type="number" name="accbal" min="0" required>
+      </div>
+      <div class="actions">
+        <input type="submit" value="Register">
+        <button type="reset" class="secondary">Reset</button>
+      </div>
+      <p class="note">
+        <a href="{{ url_for('home') }}">Back to Home</a>
+      </p>
+    </form>
+
+    {% if message %}
+      <p class="message">{{ message }}</p>
+    {% endif %}
+  </div>
+</body>
+</html>

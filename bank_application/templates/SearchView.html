@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Search Customer Account</title>
+  <style>
+    body {
+      font-family: "Inter", sans-serif;
+      background-color: #f5f6ff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      width: 550px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #222;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      color: #555;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    input[type="text"]:focus {
+      border-color: #7b42f6;
+      box-shadow: 0 0 5px rgba(123, 66, 246, 0.5);
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #7b42f6;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #6629e6;
+    }
+
+    .message {
+      margin-top: 15px;
+      font-weight: 600;
+    }
+
+    .message.success {
+      color: green;
+    }
+
+    .message.error {
+      color: crimson;
+    }
+
+    table {
+      width: 100%;
+      margin-top: 20px;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #f0ebff;
+      color: #333;
+      font-weight: 600;
+    }
+
+    td {
+      background-color: #faf9ff;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      text-decoration: none;
+      color: #7b42f6;
+      font-weight: 600;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Search Customer Account</h2>
+    <form action="/search" method="POST">
+      <label>Enter Customer Register Number</label>
+      <!-- ✅ Fixed name attribute -->
+      <input type="text" name="regnumber" placeholder="e.g. 12345" required />
+      <button type="submit">Search</button>
+    </form>
+
+    {% if message %}
+      <p class="message success">{{ message }}</p>
+    {% endif %}
+
+    {% if user_data %}
+    <table>
+      <tr>
+        <th>Reg No</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Password</th>
+        <th>Account Balance</th>
+      </tr>
+      <tr>
+        <td>{{ user_data.RegNumber }}</td>
+        <td>{{ user_data.FirstName }}</td>
+        <td>{{ user_data.LastName }}</td>
+        <td>{{ user_data.Password }}</td>
+        <td>{{ user_data.AccBal }}</td>
+      </tr>
+    </table>
+    {% endif %}
+
+    <a href="/">Back to Home</a>
+  </div>
+</body>
+</html>

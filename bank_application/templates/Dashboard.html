@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+    body{height:100vh;display:flex;
+      background: url('https://media.mgdk.dk/wp-content/uploads/sites/2/2025/09/ba_dlS3r8W-1-1024x576-1.webp') no-repeat center center/cover;
+      color:#fff;
+    }
+    .sidebar{
+      width:340px;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(8px);
+      display:flex;flex-direction:column;justify-content:space-between;
+      padding:30px 20px;text-align:left;border-right:2px solid rgba(255,255,255,0.06);
+      box-shadow:2px 0 10px rgba(0,0,0,0.3);
+      color:#fff;
+      min-height:100vh;
+    }
+    .logo{ text-align:center;margin-bottom:30px;background-color: white;}
+    .logo img{height:70px;width:auto;border-radius:10px}
+    .menu{display:flex;flex-direction:column;gap:16px}
+    .sidebar a{
+      text-decoration:none; color:#fff; background:rgba(0,0,0,0.6);
+      padding:12px 20px;border-radius:10px;transition:all .2s ease;font-weight:500;text-align:center;
+      display:block;
+    }
+    .sidebar a:hover{background:rgba(255,255,255,0.6); color:#000; transform:scale(1.03)}
+    .logout{background:rgba(239,68,68,0.85) !important; text-align:center}
+    .logout:hover{background:rgba(239,68,68,1) !important; color:#fff !important; transform:scale(1.03)}
+    .content{flex:1;display:flex;align-items:center;justify-content:center;padding:40px}
+    .content-box{background:rgba(0,0,0,0.5);padding:40px;border-radius:15px;width:65%;box-shadow:0 0 20px rgba(0,0,0,0.4);color:#fff}
+    .content-box h2{margin-bottom:12px}
+    .muted{opacity:0.85;font-weight:400}
+  </style>
+</head>
+<body>
+
+  <div class="sidebar">
+    <div>
+      <div class="logo">
+        <img src="https://www.linkcode.in/assets/img/logo/linklogo.png" alt="Logo">
+      </div>
+
+      <div class="menu">
+        <a href="/Profileview">🧍 My Profile</a>
+        <a href="/RechargeView">💰 Recharge</a>
+        <a href="/TransactionView">💳 Transaction</a>
+      </div>
+    </div>
+
+    <a href="/logout" class="logout">🚪 Logout</a>
+  </div>
+
+  <div class="content">
+    <div class="content-box" id="content-box">
+      <h2>Welcome, {{ user.FirstName if user and user.FirstName else 'User' }} 👋</h2>
+      <p class="muted">Select an option from the left dashboard to get started.</p>
+    </div>
+  </div>
+
+</body>
+</html>
